@@ -1,10 +1,15 @@
-## Codespaces Network Bridge GitHub CLI extension
+## [🧪 Preview] Codespaces Network Bridge
+
+<img width="749" alt="image" src="https://user-images.githubusercontent.com/1478800/161617508-b65de564-60f3-46c8-8394-5b28c8ac477b.png">
+
+
+🧪 *This extension is currently in Preview stage, so some hiccups are expected. Please help us to improve by submitting feedback!*
 
 This [GitHub CLI](https://cli.github.com/) extension allows to bridge network between a Codespace and your local machine, so the `Codespace` can reach out to any remote resource that is reachable from your machine. In another words, it uses your local machine a network `gateway` to get to those resources.
 
 For instance, if you are using `VPN` to connect to your enterprise network to access a database or any other remote resources on the private network, this extension allows you to get to those resources from whithin a Codespace also, so you can develop fully inside a Codespace!
 
-[About GitHub CLI](https://cli.github.com/)
+[About GitHub CLI](https://cli.github.com/).
 
 ## Installation
 
@@ -19,6 +24,14 @@ gh extension install legomushroom/gh-net
     Run `gh codespace select` command, if it opens the codespace selection dialog, you are good to go!
     <img width="749" alt="image" src="https://user-images.githubusercontent.com/1478800/161620032-c999de5a-7445-4662-bedd-95be830556e9.png">
 </details>
+
+<br />
+
+Picking up new extension version:
+
+```shell
+gh extension upgrade legomushroom/gh-net
+```
 
 ## Usage
 
@@ -64,9 +77,7 @@ If such network interface is found, we create a local `network socket` and a `NA
 
 For `DNS` packets, we register an address that is on `default gateway` subnet which allows to catch all unresolved `DNS` queries. Once `DNS` packet received, it is passed over to the `local machine` where request to local `DNS` resolver is made and reply sent back to the Codespace.
 
-## Troubleshooting
-
-Troubleshooting notes.
+The extension is written in `Rust` and provides high preformance, low memory footprint and memory safety, hence must cause low latency.
 
 ## Supported platforms
 
@@ -74,20 +85,20 @@ Troubleshooting notes.
 |-------------------------|-------|--------------|
 | Mac OSx (Intel)         | ✅     | 🙅          |
 | Mac OSx (Apple)         | 🏃     | 🙅          |
-| Linux (Ubuntu)          | ✅     | ✅            |
-| Linux (Debian)          | ✅     | ✅            |
-| Linux (Fedora)          | ✅     | ✅            |
-| Linux (Red Hat)         | ✅     | ✅            |
-| Linux (Mint)            | ✅     | ✅            |
-| Linux (OpenSUSE)        | ✅     | ✅            |
-| Linux (Centos)          | ✅     | ✅            |
-| Linux (Kali)            | ✅     | ✅            |
-| Linux (Raspberry Pi OS) | ✅     | ✅            |
+| Linux (Ubuntu)          | ✅     | ✅          |
+| Linux (Debian)          | ✅     | ✅          |
+| Linux (Fedora)          | ✅     | ✅          |
+| Linux (Red Hat)         | ✅     | ✅          |
+| Linux (Mint)            | ✅     | ✅          |
+| Linux (OpenSUSE)        | ✅     | ✅          |
+| Linux (Centos)          | ✅     | ✅          |
+| Linux (Kali)            | ✅     | ✅          |
+| Linux (Raspberry Pi OS) | ✅     | ✅          |
 | Windows 10              | 🏃     | 🙅          |
 
 ✅ - currently supported 🏃 - support in progress 🙅 - not applicable
 
-### DNS
+### DNS Record Type Support
 
 | DNS Record Type | Status |
 |-----------------|--------|
@@ -102,12 +113,93 @@ Troubleshooting notes.
 | MX              | ✅      |
 | ANY             | ✅      |
 
-## Other GitHub CLI extensions for Codespaces
+### Transport layer protocol support
 
-- [Codespace Compose](https://github.com/github/gh-codespace-compose)
+Currently only `TCP`, `UDP` and `ICMP` protocols were tested extensivelly:
+
+| Transport protocol | Status |
+|--------------------|--------|
+| TCP                | ✅     |
+| UDP                | ✅     |
+| ICMP               | ✅     |
+| SCTP               | ?      |
+| DCCP               | ?      |
+| RSVP               | ?      |
+| QUIC               | ?      |
+
+### Network layer protocol support
+
+Currently only `IPv4` is supported and was tested extensivelly:
+
+| Network protocol   | Status |
+|--------------------|--------|
+| IPv4               | ✅     |
+| IPv6               | ?      |
+| ICMPv6             | ?      |
+| IGMP               | ?      |
+| NDP                | ?      |
+| ECN                | ?      |
+| IPSec              | ?      |
+
+## Troubleshooting
+
+- Create a [Bug report](https://github.com/legomushroom/gh-net/issues/new?assignees=&labels=bug&template=bug_report.md&title=).
+- Create a [Feature request](https://github.com/legomushroom/gh-net/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=).
+
+Please search for existing issues before creating a new one.
+
+### Known issues
+
+> My local machine network configuration has changed but extension does not pick up the changes.
+
+- Please restart the extension by pressing `q` and connecting to the Codespace again. The extension currently does not watch for changes in network configuration and hence does not detect new network interfaces or changes in interfaces config. This will be fixed in the future.
+
+> I'm getting an error an a stack trace immediatelly after starting the extension.
+
+- Most likely you forgot to use `sudo` to run the extension. If `sudo` was used, please create a [Bug report](https://github.com/legomushroom/gh-net/issues/new?assignees=&labels=bug&template=bug_report.md&title=).
+
+> Extension suddenly stops working after some time and I see some stack traces in the console.
+
+Most likely `SSH` connection was dropped or there was an intermittent network issue on your machine. The extension does not currently reconnects to the Codespace automatically. This will be fixed in the future. If this happens too often, please create a [Bug report](https://github.com/legomushroom/gh-net/issues/new?assignees=&labels=bug&template=bug_report.md&title=).
+
+> I'm trying to send `Ethernet Datagrams`(L2 network layer) directly and expect those to be forwarded but they are not.
+
+The extension currently forwards `IP`(L3 network layer) traffic and above. If the datagrams contain `IP` packets that are addressed to a remote resource addressible from your local machine it should work. If it does not, please create a [Bug report](https://github.com/legomushroom/gh-net/issues/new?assignees=&labels=bug&template=bug_report.md&title=). If you want to send `Ethernet Datagrams` directly, please create a [Feature request](https://github.com/legomushroom/gh-net/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=), we would love to know about your use case!
+
+> I'm using some transport protocol that does not work.
+
+Currently `TCP`/`UDP` and `ICMP` are supported. Other protocols should work but were not tested extensivelly. Please create [Bug report](https://github.com/legomushroom/gh-net/issues/new?assignees=&labels=bug&template=bug_report.md&title=) so we can address the issue.
+
+## Useful links
+
 - [About GitHub CLI](https://cli.github.com/)
 - [GitHub CLI Docs](https://cli.github.com/manual/gh)
+- [About GitHub Codespaces](https://github.com/features/codespaces)
+
+- [🔒 Source code](https://github.com/github/codespaces-vpn-gateway)
+- [🔒 Codespace Compose GitHub CLI extension](https://github.com/github/gh-codespace-compose)
 
 ## License
 
-License text.
+MIT License
+
+Copyright (c) 2021 GitHub
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+

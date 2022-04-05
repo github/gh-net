@@ -4,9 +4,9 @@
 
 🧪 *The extension is currently in Preview stage, so some hiccups are expected. Please help us to improve [by submitting feedback](https://github.com/legomushroom/gh-net#troubleshooting)!*
 
-This [GitHub CLI](https://cli.github.com/) extension allows to bridge network between a Codespace and your local machine, so the `Codespace` can reach out to any remote resource that is reachable from your machine. In another words, it uses your local machine a network `gateway` to get to those resources.
+This [GitHub CLI](https://cli.github.com/) extension allows to bridge network between a Codespace and your local machine, so the `Codespace` can reach out to any remote resource that is reachable from your machine. In another words, it uses your local machine as a network `gateway` to get to those resources.
 
-For instance, if you are using `VPN` to connect to your enterprise network to access a database or any other remote resources on the private network, this extension allows you to get to those resources from whithin a Codespace also, so you can develop fully inside a Codespace!
+For instance, if you are using a `VPN` to connect to your enterprise network to access a database or any other remote resources on the private network, this extension allows you to get to those resources from within a Codespace, so that you can develop fully inside a Codespace!
 
 [About GitHub CLI](https://cli.github.com/).
 
@@ -70,11 +70,11 @@ We bind to the `default gateway` network interface inside the codespace and forw
 
 This ensures that we fallback to forwaring packets only if they were not handled by any other network interface inside a Codespace.
 
-Once a packet reaches the local machine, we see if we can forward it to a meaningful distanation, for that we resolve network interface that can handle the packet destination. Such network interface must not be a default gateway interface given that the packet destination is not to the gateway subnet, otherwise the packet is addressed to internet which can be handled from whithin the codespace directly.
+Once a packet reaches the local machine, we see if we can forward it to a meaningful destination, for that we resolve network interface that can handle the packet destination. Such network interface must not be a default gateway interface given that the packet destination is not to the gateway subnet, otherwise the packet is addressed to the internet which can be handled from whithin the codespace directly.
 
-If such network interface is found, we create a local `network socket` and a `NAT` record for the connection. The NAT reord is used to map remote packet source address to the local network socket address, so it appears to the remote resource as if traffic is comming from the local machine. When a reply packet is received, we perform reverse address translation and send the packet back to the codespace (so it appears if reply came directly from the Codespace default gateway interface).
+If such network interface is found, we create a local `network socket` and a `NAT` record for the connection. The NAT record is used to map the remote packet source address to the local network socket address, so it appears to the remote resource as if traffic is coming from the local machine. When a reply packet is received, we perform reverse address translation and send the packet back to the codespace (so it appears as if the reply came directly from the codespace default gateway interface).
 
-For `DNS` packets, we register an address that is on `default gateway` subnet which allows to catch all unresolved `DNS` queries. Once `DNS` packet received, it is passed over to the `local machine` where request to local `DNS` resolver is made and reply sent back to the Codespace.
+For `DNS` packets, we register an address that is on the `default gateway` subnet which allows to catch all unresolved `DNS` queries. Once `DNS` packet is received, it is passed over to the `local machine` where the request to the local `DNS` resolver is made and a reply is sent back to the codespace.
 
 The extension is written in `Rust` and provides high preformance, low memory footprint and memory safety, hence must cause low latency.
 
@@ -114,7 +114,7 @@ The extension is written in `Rust` and provides high preformance, low memory foo
 
 ### Transport layer protocol support
 
-Currently only `TCP`, `UDP` and `ICMP` protocols were tested extensivelly:
+Currently only `TCP`, `UDP` and `ICMP` protocols were tested extensively:
 
 | Transport protocol | Status |
 |--------------------|--------|
@@ -128,7 +128,7 @@ Currently only `TCP`, `UDP` and `ICMP` protocols were tested extensivelly:
 
 ### Network layer protocol support
 
-Currently only `IPv4` is supported and was tested extensivelly:
+Currently only `IPv4` is supported and was tested extensively:
 
 | Network protocol   | Status |
 |--------------------|--------|
@@ -174,31 +174,8 @@ Currently `TCP`/`UDP` and `ICMP` are supported. Other protocols should work but 
 - [About GitHub CLI](https://cli.github.com/)
 - [GitHub CLI Docs](https://cli.github.com/manual/gh)
 - [About GitHub Codespaces](https://github.com/features/codespaces)
-
 - [🔒 Source code](https://github.com/github/codespaces-vpn-gateway)
 - [🔒 Codespace Compose GitHub CLI extension](https://github.com/github/gh-codespace-compose)
 
-## License
 
-MIT License
-
-Copyright (c) 2021 GitHub
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
 

@@ -52,8 +52,8 @@ Select a codespace and press enter. The extension will connect to selected codes
 
 There are two pannels in the connected view of the extension:
 
-- Panel on the left (`NAT`) shows the network address translation table for currently opened connections. For successful stateful protocols(e.g. `TCP`) the records are cleaned up automatically after connection is closed so teh records will come and go as connection is established and closed. For stateless protocols (e.g. `UDP` or `ICMP`) or unsuccessful `TCP` connections the records are cleaned up after some time, so those will show up in the list for some time.
-- Panel on the right (`DNS`) shows the resolved `DNS` records, as `hostname`, `record` and `time-to-live` (or `TTL`) values.
+- Panel on the left (`NAT`) shows the network address translation table for currently opened connections. For stateful protocols(e.g. `TCP`) the records are cleaned up automatically after connection is closed so the records will come and go as connection is established and closed. For stateless protocols (e.g. `UDP` or `ICMP`) or unsuccessful `TCP` connections the records are cleaned up after some time, so those will show up in the list for some time.
+- Panel on the right (`DNS`) shows the resolved `DNS` records, as `hostname`, `record` and `time-to-live` (`TTL`) values.
 
 Press `q` or `ctrl + c` to stop the extension.
 

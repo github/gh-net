@@ -2,7 +2,7 @@
 
 <img width="749" alt="image" src="https://user-images.githubusercontent.com/1478800/161617508-b65de564-60f3-46c8-8394-5b28c8ac477b.png">
 
-🧪 *This extension is currently in Preview stage, so some hiccups are expected. Please help us to improve [by submitting feedback](https://github.com/legomushroom/gh-net#troubleshooting)!*
+🧪 *The extension is currently in Preview stage, so some hiccups are expected. Please help us to improve [by submitting feedback](https://github.com/legomushroom/gh-net#troubleshooting)!*
 
 This [GitHub CLI](https://cli.github.com/) extension allows to bridge network between a Codespace and your local machine, so the `Codespace` can reach out to any remote resource that is reachable from your machine. In another words, it uses your local machine a network `gateway` to get to those resources.
 

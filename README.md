@@ -60,7 +60,7 @@ Press `q` or `ctrl + c` to stop the extension.
 ### CLI Options
 
 - `--gui`: Enanble/disable GUI mode. [`true` | `false`] [default: `true`]
-- `--trace`: Specify tracing verbosity. [`none` | `trace` | `debug` | `info` | `warn` | `error`] [default: `info`]
+- `--trace-level`: Specify tracing verbosity. [`none` | `trace` | `debug` | `info` | `warn` | `error`] [default: `info`]
 
 Run `gh net start -h` for details.
 

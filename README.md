@@ -1,4 +1,4 @@
-## Codespaces VPN Gateway
+## Codespaces Network Bridge
 
 <img width="749" alt="image" src="https://user-images.githubusercontent.com/1478800/161617508-b65de564-60f3-46c8-8394-5b28c8ac477b.png">
 

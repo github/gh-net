@@ -1,8 +1,8 @@
-## Codespaces Network Bridge
+## Codespaces VPN Gateway
 
 <img width="749" alt="image" src="https://user-images.githubusercontent.com/1478800/161617508-b65de564-60f3-46c8-8394-5b28c8ac477b.png">
 
-🧪 *The extension is currently in Preview stage, so some hiccups are expected. Please help us to improve [by submitting feedback](https://github.com/legomushroom/gh-net#troubleshooting)!*
+🧪 *The extension is currently in Preview stage, so some hiccups are expected. Please help us to improve [by submitting feedback](https://github.com/github/gh-net#troubleshooting)!*
 
 This [GitHub CLI](https://cli.github.com/) extension allows to bridge network between a Codespace and your local machine, so the `Codespace` can reach out to any remote resource that is reachable from your machine. In another words, it uses your local machine as a network `gateway` to get to those resources.
 
@@ -13,7 +13,7 @@ For instance, if you are using a `VPN` to connect to your enterprise network to 
 ## Installation
 
 ```shell
-gh extension install legomushroom/gh-net
+gh extension install github/gh-net
 ```
 
 *This extension depends on the latest features of GitHub CLI, please make sure [to upgrade it](https://github.com/cli/cli#installation).*
@@ -29,7 +29,7 @@ gh extension install legomushroom/gh-net
 Picking up new extension version:
 
 ```shell
-gh extension upgrade legomushroom/gh-net
+gh extension upgrade github/gh-net
 ```
 
 ## Usage
@@ -56,6 +56,13 @@ There are two pannels in the connected view of the extension:
 - Panel on the right (`DNS`) shows the resolved `DNS` records, as `hostname`, `record` and `time-to-live` (`TTL`) values.
 
 Press `q` or `ctrl + c` to stop the extension.
+
+### CLI Options
+
+- `--gui`: Enanble/disable GUI mode. [`true` | `false`] [default: `true`]
+- `--trace`: Specify tracing verbosity. [`none` | `trace` | `debug` | `info` | `warn` | `error`] [default: `info`]
+
+Run `gh net start -h` for details.
 
 ## How it works
 
@@ -86,13 +93,13 @@ The extension is written in `Rust` and provides high preformance, low memory foo
 | Mac OSx (Apple)         | 🏃     | 🙅          |
 | Linux (Ubuntu)          | ✅     | ✅          |
 | Linux (Debian)          | ✅     | ✅          |
-| Linux (Fedora)          | ✅     | ✅          |
-| Linux (Red Hat)         | ✅     | ✅          |
-| Linux (Mint)            | ✅     | ✅          |
-| Linux (OpenSUSE)        | ✅     | ✅          |
-| Linux (Centos)          | ✅     | ✅          |
-| Linux (Kali)            | ✅     | ✅          |
-| Linux (Raspberry Pi OS) | ✅     | ✅          |
+| Linux (Fedora)          | ?      | ?          |
+| Linux (Red Hat)         | ?      | ?          |
+| Linux (Mint)            | ?      | ?          |
+| Linux (OpenSUSE)        | ?      | ?          |
+| Linux (Centos)          | ?      | ?          |
+| Linux (Kali)            | ?      | ?          |
+| Linux (Raspberry Pi OS) | ?      | ?          |
 | Windows 10              | 🏃     | 🙅          |
 
 ✅ - currently supported 🏃 - support in progress 🙅 - not applicable
@@ -134,7 +141,6 @@ Currently only `IPv4` is supported and was tested extensively:
 |--------------------|--------|
 | IPv4               | ✅     |
 | IPv6               | ?      |
-| ICMPv6             | ?      |
 | IGMP               | ?      |
 | NDP                | ?      |
 | ECN                | ?      |
@@ -142,8 +148,8 @@ Currently only `IPv4` is supported and was tested extensively:
 
 ## Troubleshooting
 
-- Create a [Bug report](https://github.com/legomushroom/gh-net/issues/new?assignees=&labels=bug&template=bug_report.md&title=).
-- Create a [Feature request](https://github.com/legomushroom/gh-net/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=).
+- Create a [Bug report](https://github.com/github/gh-net/issues/new?assignees=&labels=bug&template=bug_report.md&title=).
+- Create a [Feature request](https://github.com/github/gh-net/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=).
 
 Please search for existing issues before creating a new one.
 
@@ -155,19 +161,19 @@ Please search for existing issues before creating a new one.
 
 > I'm getting an error an a stack trace immediatelly after starting the extension.
 
-- Most likely you forgot to use `sudo` to run the extension. If `sudo` was used, please create a [Bug report](https://github.com/legomushroom/gh-net/issues/new?assignees=&labels=bug&template=bug_report.md&title=).
+- Most likely you forgot to use `sudo` to run the extension. If `sudo` was used, please create a [Bug report](https://github.com/github/gh-net/issues/new?assignees=&labels=bug&template=bug_report.md&title=).
 
 > Extension suddenly stops working after some time and I see some stack traces in the console.
 
-Most likely `SSH` connection was dropped or there was an intermittent network issue on your machine. The extension does not currently reconnects to the Codespace automatically. This will be fixed in the future. If this happens too often, please create a [Bug report](https://github.com/legomushroom/gh-net/issues/new?assignees=&labels=bug&template=bug_report.md&title=).
+Most likely `SSH` connection was dropped or there was an intermittent network issue on your machine. The extension does not currently reconnects to the Codespace automatically. This will be fixed in the future. If this happens too often, please create a [Bug report](https://github.com/github/gh-net/issues/new?assignees=&labels=bug&template=bug_report.md&title=).
 
 > I'm trying to send `Ethernet Datagrams`(L2 network layer) directly and expect those to be forwarded but they are not.
 
-The extension currently forwards `IP`(L3 network layer) traffic and above. If the datagrams contain `IP` packets that are addressed to a remote resource addressible from your local machine it should work. If it does not, please create a [Bug report](https://github.com/legomushroom/gh-net/issues/new?assignees=&labels=bug&template=bug_report.md&title=). If you want to send `Ethernet Datagrams` directly, please create a [Feature request](https://github.com/legomushroom/gh-net/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=), we would love to know about your use case!
+The extension currently forwards `IP`(L3 network layer) traffic and above. If the datagrams contain `IP` packets that are addressed to a remote resource addressible from your local machine it should work. If it does not, please create a [Bug report](https://github.com/github/gh-net/issues/new?assignees=&labels=bug&template=bug_report.md&title=). If you want to send `Ethernet Datagrams` directly, please create a [Feature request](https://github.com/github/gh-net/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=), we would love to know about your use case!
 
 > I'm using some transport protocol that does not work.
 
-Currently `TCP`/`UDP` and `ICMP` are supported. Other protocols should work but were not tested extensivelly. Please create [Bug report](https://github.com/legomushroom/gh-net/issues/new?assignees=&labels=bug&template=bug_report.md&title=) so we can address the issue.
+Currently `TCP`/`UDP` and `ICMP` are supported. Other protocols should work but were not tested extensivelly. Please create [Bug report](https://github.com/github/gh-net/issues/new?assignees=&labels=bug&template=bug_report.md&title=) so we can address the issue.
 
 ## Useful links
 

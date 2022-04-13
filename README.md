@@ -24,7 +24,7 @@ gh extension install github/gh-net
     <img width="749" alt="image" src="https://user-images.githubusercontent.com/1478800/161620032-c999de5a-7445-4662-bedd-95be830556e9.png">
 </details>
 
-⚠️ If your Codespaces use non-default image, make sure that GitHub CLI is installed in the Codespaces. The installation step can happen either in `Dockerfile` or in one of the `.devcontainer.json` lifecycle hooks e.g. [postCreateCommand](https://code.visualstudio.com/docs/remote/devcontainerjson-reference). See https://github.com/cli/cli#installation for GitHub CLI installation instructions.
+⚠️ If your Codespaces use non-default image, make sure that [GitHub CLI](https://cli.github.com/) is installed inside the Codespaces. The installation step can happen either in `Dockerfile` or in one of the `.devcontainer.json` lifecycle hooks e.g. [postCreateCommand](https://code.visualstudio.com/docs/remote/devcontainerjson-reference). See https://github.com/cli/cli#installation for GitHub CLI installation instructions.
 
 <br />
 

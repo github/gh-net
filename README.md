@@ -32,7 +32,7 @@ Linux:
 sudo gh extension install github/gh-net
 ```
 
-You need to use `sudo` during extension installation on Linux due to https://github.com/cli/cli/issues/5456. Hopefully it won't be the case in the future.
+The `sudo` is required during extension installation on Linux due to https://github.com/cli/cli/issues/5456. Hopefully it won't be the case in the future.
 
 ⚠️ If your Codespaces use non-default image, make sure that [GitHub CLI](https://cli.github.com/) is installed inside the Codespaces. The installation step can happen either in `Dockerfile` or in one of the `.devcontainer.json` lifecycle hooks e.g. [postCreateCommand](https://code.visualstudio.com/docs/remote/devcontainerjson-reference). See https://github.com/cli/cli#installation for GitHub CLI installation instructions.
 

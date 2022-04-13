@@ -12,10 +12,6 @@ For instance, if you are using a `VPN` to connect to your enterprise network to 
 
 ## Installation
 
-```shell
-gh extension install github/gh-net
-```
-
 *This extension depends on the latest features of GitHub CLI, please make sure [to upgrade it](https://github.com/cli/cli#installation).*
 
 <details>
@@ -24,11 +20,25 @@ gh extension install github/gh-net
     <img width="749" alt="image" src="https://user-images.githubusercontent.com/1478800/161620032-c999de5a-7445-4662-bedd-95be830556e9.png">
 </details>
 
+Mac OSx:
+
+```shell
+gh extension install github/gh-net
+```
+
+Linux:
+
+```shell
+sudo gh extension install github/gh-net
+```
+
+You need to use `sudo` during extension installation on Linux due to https://github.com/cli/cli/issues/5456. Hopefully it won't be the case in the future.
+
 ⚠️ If your Codespaces use non-default image, make sure that [GitHub CLI](https://cli.github.com/) is installed inside the Codespaces. The installation step can happen either in `Dockerfile` or in one of the `.devcontainer.json` lifecycle hooks e.g. [postCreateCommand](https://code.visualstudio.com/docs/remote/devcontainerjson-reference). See https://github.com/cli/cli#installation for GitHub CLI installation instructions.
 
 <br />
 
-Picking up new extension version:
+Upgrading the extension (you need `sudo` on Linux):
 
 ```shell
 gh extension upgrade github/gh-net

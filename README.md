@@ -46,13 +46,13 @@ gh extension upgrade github/gh-net
 
 ## Usage
 
-To start network forwarding from whithin a Codespace to your local machine, run:
+To start network forwarding from a Codespace to a local machine, run:
 
 ```shell
 sudo gh net start
 ```
 
-> Note: `sudo` privileges are required to bind to network sockets on your machine. In theory user with network administration rights can run this command without sudo, but this scenario is not tested well enough yet, so using `sudo` is the hard requirement at the moment.
+> Note: `sudo` privileges are required to bind to network sockets on your machine.
 
 This will provide codespace selection dialog:
 

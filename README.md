@@ -36,14 +36,6 @@ The `sudo` is required during extension installation on Linux due to https://git
 
 ⚠️ If your Codespaces use non-default image, make sure that [GitHub CLI](https://cli.github.com/) and SSH server are installed inside the Codespaces. It might be as simple as adding `"github-cli": "latest"` and `"sshd": "latest"` to `devcontainer.json` file!
 
-<br />
-
-Upgrading the extension (you need `sudo` on Linux):
-
-```shell
-gh extension upgrade github/gh-net
-```
-
 ## Usage
 
 To start network forwarding from a Codespace to a local machine, run:

@@ -68,123 +68,55 @@ Press `q` or `ctrl + c` to stop the extension.
 
 Run `gh net start -h` for details.
 
-## How it works
-
-<img src="./diagrams/general.png" alt="general schema" width="500" />
-
-We bind to the `default gateway` network interface inside the codespace and forward all non-routed traffic to the `SSH tunnel` that connects a Codespace with your local machine. We forward only `L3` (`IP`) traffic and there are few criterias must hold for traffic to be forwarded:
-
-- it must appear on the `default gateway`
-- it must not be addressed tosomething that is on default gateway subnet
-
-This ensures that we fallback to forwaring packets only if they were not handled by any other network interface inside a Codespace.
-
-Once a packet reaches the local machine, we see if we can forward it to a meaningful destination, for that we resolve network interface that can handle the packet destination. Such network interface must not be a default gateway interface given that the packet destination is not to the gateway subnet, otherwise the packet is addressed to the internet which can be handled from within the codespace directly.
-
-If such network interface is found, we create a local `network socket` and a `NAT` record for the connection. The NAT record is used to map the remote packet source address to the local network socket address, so it appears to the remote resource as if traffic is coming from the local machine. When a reply packet is received, we perform reverse address translation and send the packet back to the codespace (so it appears as if the reply came directly from the codespace default gateway interface).
-
-For `DNS` packets, we register an address that is on the `default gateway` subnet which allows to catch all unresolved `DNS` queries. Once `DNS` packet is received, it is passed over to the `local machine` where the request to the local `DNS` resolver is made and a reply is sent back to the codespace.
-
-The extension is written in `Rust` and provides high preformance, low memory footprint and memory safety, hence must cause low latency.
 
 ## Supported platforms
 
-| Target platforms        | Local | Inside Codespace |
-|-------------------------|-------|--------------|
-| Mac OSx (Intel)         | ✅     | 🙅          |
-| Mac OSx (Apple)         | 🏃     | 🙅          |
-| Linux (Ubuntu)          | ✅     | ✅          |
-| Linux (Debian)          | ✅     | ✅          |
-| Linux (Fedora)          | ?      | ?          |
-| Linux (Red Hat)         | ?      | ?          |
-| Linux (Mint)            | ?      | ?          |
-| Linux (OpenSUSE)        | ?      | ?          |
-| Linux (Centos)          | ?      | ?          |
-| Linux (Kali)            | ?      | ?          |
-| Linux (Raspberry Pi OS) | ?      | ?          |
-| Alpine Linux (bullseye) | ?      | ✅          |
-| Windows 10              | 🏃     | 🙅          |
+### Mac OSx
 
-✅ - currently supported 🏃 - support in progress 🙅 - not applicable
+| Architecture            | Local | Inside a Codespace |
+|-------------------------|-------|--------------------|
+| Intel                   | ✅     | 🙅                 |
+| Apple                   | 🏃     | 🙅                 |
 
-### DNS Record Type Support
+### Linux
 
-| DNS Record Type | Status |
-|-----------------|--------|
-| A               | ✅      |
-| AAAA            | ✅      |
-| CNAME           | ✅      |
-| NS              | ✅      |
-| TXT             | ✅      |
-| SOA             | ✅      |
-| PTR             | ✅      |
-| NULL            | ✅      |
-| MX              | ✅      |
-| ANY             | ✅      |
+| Distro                  | Local | Inside Codespace |
+|-------------------------|-------|------------------|
+| Ubuntu                  | ✅     | ✅               |
+| Debian                  | ✅     | ✅               |
+| Fedora                  | ?      | ?               |
+| Red Hat                 | ?      | ?               |
+| Mint                    | ?      | ?               |
+| OpenSUSE                | ?      | ?               |
+| Centos                  | ?      | ?               |
+| Kali                    | ?      | ?               |
+| Raspberry Pi OS         | ?      | ?               |
+| Alpine (bullseye)       | ?      | ✅               |
 
-### Transport layer protocol support
+### Windows
 
-Currently only `TCP`, `UDP` and `ICMP` protocols were tested extensively:
+| Version                 | Local | Inside a Codespace |
+|-------------------------|-------|--------------------|
+| Windows 10              | 🏃     | 🙅                 |
+| Windows 11              | 🏃     | 🙅                 |
 
-| Transport protocol | Status |
-|--------------------|--------|
-| TCP                | ✅     |
-| UDP                | ✅     |
-| ICMP               | ✅     |
-| SCTP               | ?      |
-| DCCP               | ?      |
-| RSVP               | ?      |
-| QUIC               | ?      |
+<br />
 
-### Network layer protocol support
+Legend: ✅ - currently supported 🏃 - in progress 🙅 - not applicable `?` - unknown / not tested
 
-Currently only `IPv4` is supported and was tested extensively:
+<br />
 
-| Network protocol   | Status |
-|--------------------|--------|
-| IPv4               | ✅     |
-| IPv6               | ?      |
-| IGMP               | ?      |
-| NDP                | ?      |
-| ECN                | ?      |
-| IPSec              | ?      |
+For list of supported network protocols refer to [this doc](./docs/SUPPORTED_NETWORK_PROTOCOLS.md).
 
 ## Troubleshooting
 
-- To create a [Bug report](https://github.com/github/gh-net/issues/new?assignees=&labels=bug&template=bug_report.md&title=).
-- To create a [Feature request](https://github.com/github/gh-net/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=).
-
-Please search for existing issues before creating a new one.
-
-### Known issues
-
-> My local machine network configuration has changed but extension does not pick up the changes.
-
-- Please restart the extension by pressing `q` and connecting to the Codespace again. The extension currently does not watch for changes in network configuration and hence does not detect new network interfaces or changes in interfaces config. This will be fixed in the future.
-
-> I'm getting an error an a stack trace immediatelly after starting the extension.
-
-- Most likely you forgot to use `sudo` to run the extension. If `sudo` was used, please create a [Bug report](https://github.com/github/gh-net/issues/new?assignees=&labels=bug&template=bug_report.md&title=).
-
-> Extension suddenly stops working after some time and I see some stack traces in the console.
-
-Most likely `SSH` connection was dropped or there was an intermittent network issue on your machine. The extension does not currently reconnects to the Codespace automatically. This will be fixed in the future. If this happens too often, please create a [Bug report](https://github.com/github/gh-net/issues/new?assignees=&labels=bug&template=bug_report.md&title=).
-
-> I'm trying to send `Ethernet Datagrams`(L2 network layer) directly and expect those to be forwarded but they are not.
-
-The extension currently forwards `IP`(L3 network layer) traffic and above. If the datagrams contain `IP` packets that are addressed to a remote resource addressible from your local machine it should work. If it does not, please create a [Bug report](https://github.com/github/gh-net/issues/new?assignees=&labels=bug&template=bug_report.md&title=). If you want to send `Ethernet Datagrams` directly, please create a [Feature request](https://github.com/github/gh-net/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=), we would love to know about your use case!
-
-> I'm using some transport protocol that does not work.
-
-Currently `TCP`/`UDP` and `ICMP` are supported. Other protocols should work but were not tested extensivelly. Please create [Bug report](https://github.com/github/gh-net/issues/new?assignees=&labels=bug&template=bug_report.md&title=) so we can address the issue.
+- Something is missing? Please create a [✨ feature request](https://github.com/github/gh-net/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=).
+- Something is incorrect? Please create a [🐛 bug report](https://github.com/github/gh-net/issues/new?assignees=&labels=bug&template=bug_report.md&title=).
+- For list of known issues refer to [👉 this doc](./docs/KNOWN_ISSUES.md).
 
 ## Useful links
 
+- [How it works](./docs/HOW_IT_WORKS.md)
 - [About GitHub CLI](https://cli.github.com/)
-- [GitHub CLI Docs](https://cli.github.com/manual/gh)
 - [About GitHub Codespaces](https://github.com/features/codespaces)
 - [🔒 Source code](https://github.com/github/codespaces-vpn-gateway)
-- [🔒 Codespace Compose GitHub CLI extension](https://github.com/github/gh-codespace-compose)
-
-
-

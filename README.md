@@ -12,7 +12,7 @@ For instance, if you are using a `VPN` to connect to your enterprise network to 
 
 ## Installation
 
-*This extension depends on the latest features of GitHub CLI, please make sure [to upgrade it](https://github.com/cli/cli#installation).*
+*This extension depends on the latest features of GitHub CLI(>= v2.8.0), please make sure [to upgrade it](https://github.com/cli/cli#installation).*
 
 <details>
     <summary>How to check if my version works?</summary>

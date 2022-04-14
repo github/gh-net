@@ -70,9 +70,7 @@ Run `gh net start -h` for details.
 
 ## How it works
 
-General diagram is shown below:
-
-<img src="./diagrams/general.png" alt="general schema" />
+<img src="./diagrams/general.png" alt="general schema" width="500" />
 
 We bind to the `default gateway` network interface inside the codespace and forward all non-routed traffic to the `SSH tunnel` that connects a Codespace with your local machine. We forward only `L3` (`IP`) traffic and there are few criterias must hold for traffic to be forwarded:
 

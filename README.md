@@ -112,6 +112,7 @@ The extension is written in `Rust` and provides high preformance, low memory foo
 | Linux (Centos)          | ?      | ?          |
 | Linux (Kali)            | ?      | ?          |
 | Linux (Raspberry Pi OS) | ?      | ?          |
+| Alpine Linux (bullseye) | ?      | ✅          |
 | Windows 10              | 🏃     | 🙅          |
 
 ✅ - currently supported 🏃 - support in progress 🙅 - not applicable

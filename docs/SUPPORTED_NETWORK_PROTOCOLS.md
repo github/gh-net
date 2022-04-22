@@ -42,6 +42,7 @@ Currently only `TCP`, `UDP` and `ICMP` protocols were tested extensively:
 | NULL            | ✅      |
 | MX              | ✅      |
 | ANY             | ✅      |
+| SRV             | ✅      |
 
 <br />
 

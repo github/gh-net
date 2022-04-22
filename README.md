@@ -74,10 +74,10 @@ Run `gh net start -h` for details.
 
 ### Mac OSx
 
-| Architecture            | Local | Inside a Codespace |
-|-------------------------|-------|--------------------|
-| Intel                   | ✅     | 🙅                 |
-| Apple                   | 🏃     | 🙅                 |
+| Architecture            | Local |
+|-------------------------|-------|
+| Intel                   | ✅     |
+| Apple                   | 🏃     |
 
 ### Linux
 
@@ -88,18 +88,18 @@ Run `gh net start -h` for details.
 | Fedora                  | ?      | ✅               |
 | Red Hat                 | ?      | ✅               |
 | Mint                    | ?      | ✅               |
-| OpenSUSE                | ?      | ?               |
+| OpenSUSE                | ?      | ✅               |
 | Centos                  | ?      | ✅               |
 | Kali                    | ?      | ?               |
 | Raspberry Pi OS         | ?      | ?               |
-| Alpine (bullseye)       | ?      | ✅               |
+| Alpine                  | ?      | ✅               |
 
 ### Windows
 
-| Version                 | Local | Inside a Codespace |
-|-------------------------|-------|--------------------|
-| Windows 10              | 🏃     | 🙅                 |
-| Windows 11              | 🏃     | 🙅                 |
+| Version                 | Local |
+|-------------------------|-------|
+| Windows 10              | 🏃     |
+| Windows 11              | 🏃     |
 
 <br />
 

@@ -89,7 +89,7 @@ Run `gh net start -h` for details.
 | Red Hat                 | ?      | ?               |
 | Mint                    | ?      | ?               |
 | OpenSUSE                | ?      | ?               |
-| Centos                  | ?      | ?               |
+| Centos                  | ?      | ✅               |
 | Kali                    | ?      | ?               |
 | Raspberry Pi OS         | ?      | ?               |
 | Alpine (bullseye)       | ?      | ✅               |

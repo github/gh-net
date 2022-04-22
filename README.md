@@ -10,15 +10,17 @@ For instance, if you are using a `VPN` to connect to your enterprise network to 
 
 [About GitHub CLI](https://cli.github.com/).
 
+## Prerequisites
+
+
+1. This extension depends on the latest features of GitHub CLI(>= v2.8.0), please make sure [to upgrade it](https://github.com/cli/cli#installation). If run the `gh codespace select` command opens the codespace selection dialog, you are good to go.
+
+2. The extension relies on `gh codespace ssh` command to establish SSH tunnel to a Codespace, hence you need to setup ssh keys if you didn't before. If you can do `sudo gh codespace ssh` (`sudo` is important since kernel might use different identity under non-root user) and connect to a Codespace successfully, - you are good to go. Refer to [Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) for more info.
+
+3. If your Codespaces use non-default image, make sure that [GitHub CLI](https://cli.github.com/) and SSH server are installed inside the Codespaces. It might be as simple as adding `"github-cli": "latest"` and `"sshd": "latest"` to the `"feartures"` section of the `devcontainer.json` file!
+
+
 ## Installation
-
-*This extension depends on the latest features of GitHub CLI(>= v2.8.0), please make sure [to upgrade it](https://github.com/cli/cli#installation).*
-
-<details>
-    <summary>How to check if my version works?</summary>
-    Run `gh codespace select` command, if it opens the codespace selection dialog, you are good to go!
-    <img width="749" alt="image" src="https://user-images.githubusercontent.com/1478800/161620032-c999de5a-7445-4662-bedd-95be830556e9.png">
-</details>
 
 Mac OSx:
 
@@ -33,8 +35,6 @@ sudo gh extension install github/gh-net
 ```
 
 The `sudo` is required during extension installation on Linux due to https://github.com/cli/cli/issues/5456. Hopefully it won't be the case in the future.
-
-⚠️ If your Codespaces use non-default image, make sure that [GitHub CLI](https://cli.github.com/) and SSH server are installed inside the Codespaces. It might be as simple as adding `"github-cli": "latest"` and `"sshd": "latest"` to the `"feartures"` section of the `devcontainer.json` file!
 
 ## Usage
 

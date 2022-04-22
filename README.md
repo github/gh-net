@@ -86,7 +86,7 @@ Run `gh net start -h` for details.
 | Ubuntu                  | ✅     | ✅               |
 | Debian                  | ✅     | ✅               |
 | Fedora                  | ?      | ✅               |
-| Red Hat                 | ?      | ?               |
+| Red Hat                 | ?      | ✅               |
 | Mint                    | ?      | ?               |
 | OpenSUSE                | ?      | ?               |
 | Centos                  | ?      | ✅               |

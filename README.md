@@ -15,7 +15,7 @@ For instance, if you are using a `VPN` to connect to your enterprise network to 
 
 1. This extension depends on the latest features of GitHub CLI(>= v2.8.0), please make sure [to upgrade it](https://github.com/cli/cli#installation). If run the `gh codespace select` command opens the codespace selection dialog, you are good to go.
 
-2. The extension relies on `gh codespace ssh` command to establish SSH tunnel to a Codespace, hence you need to setup ssh keys if you didn't before. If you can do `sudo gh codespace ssh` (`sudo` is important since kernel might use different identity under non-root user) and connect to a Codespace successfully, - you are good to go. Refer to [Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) for more info.
+2. The extension relies on `gh codespace ssh` command to establish SSH tunnel to a Codespace, hence you need to setup ssh keys if you didn't before. If you can do `sudo gh codespace ssh` (`sudo` is important since kernel might use different identity under non-root user) and connect to a Codespace successfully, - you are good to go. Refer to [Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) for more info. 
 
 3. If your Codespaces use non-default image, make sure that [GitHub CLI](https://cli.github.com/) and SSH server are installed inside the Codespaces. It might be as simple as adding `"github-cli": "latest"` and `"sshd": "latest"` to the `"feartures"` section of the `devcontainer.json` file!
 
@@ -44,7 +44,7 @@ To start network forwarding from a Codespace to a local machine, run:
 sudo gh net start
 ```
 
-> Note: `sudo` privileges are required to bind to network sockets on your machine.
+> ⚠️ Note: If you set a `passphrase` for your `SSH` keys, you will need to pass `--gui false` CLI option, otherwise you won't be able to connect. This will be fixed in future releases.
 
 This will provide codespace selection dialog:
 

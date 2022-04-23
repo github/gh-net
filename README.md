@@ -92,6 +92,7 @@ Run `gh net start -h` for details.
 | Centos                  | ?      | ✅               |
 | Kali                    | ?      | ✅               |
 | Raspberry Pi OS         | ?      | ?               |
+| Arch                    | ?      | ✅               |
 | Alpine                  | ?      | ✅               |
 
 ### Windows

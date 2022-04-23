@@ -46,7 +46,7 @@ Currently only `TCP`, `UDP` and `ICMP` protocols were tested extensively:
 
 <br />
 
-Legend: ✅ - currently supported 🏃 - in progress 🙅 - not applicable `?` - unknown / not tested
+Legend: ✅ - currently supported 🏃 - in progress `?` - unknown / not tested
 
 <br />
 

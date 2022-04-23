@@ -104,7 +104,7 @@ Run `gh net start -h` for details.
 
 <br />
 
-Legend: ✅ - currently supported 🏃 - in progress 🙅 - not applicable `?` - unknown / not tested
+Legend: ✅ - currently supported 🏃 - in progress `?` - unknown / not tested
 
 <br />
 

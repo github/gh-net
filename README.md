@@ -91,9 +91,9 @@ Run `gh net start -h` for details.
 | OpenSUSE                | ?      | ✅               |
 | Centos                  | ?      | ✅               |
 | Kali                    | ?      | ✅               |
-| Raspberry Pi OS         | ?      | ?               |
 | Arch                    | ?      | ✅               |
 | Alpine                  | ?      | ✅               |
+| Raspberry Pi OS         | ?      | ?               |
 
 ### Windows
 
@@ -101,6 +101,15 @@ Run `gh net start -h` for details.
 |-------------------------|-------|
 | Windows 10              | 🏃     |
 | Windows 11              | 🏃     |
+
+## VPN Clients
+
+| Name                    | Status |
+|-------------------------|--------|
+| Viscocity               | ✅     |
+| GlobalProtect           | ✅     |
+| NordVPN                 | ✅     |
+| Tailscale               | ✅     |
 
 <br />
 

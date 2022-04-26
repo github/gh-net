@@ -77,7 +77,7 @@ Run `gh net start -h` for details.
 | Architecture            | Local |
 |-------------------------|-------|
 | Intel                   | ✅     |
-| Apple                   | 🏃     |
+| Apple silicon           | ✅     |
 
 ### Linux
 

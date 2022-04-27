@@ -17,7 +17,7 @@ For instance, if you are using a `VPN` to connect to your enterprise network to 
 
 2. The extension relies on `gh codespace ssh` command to establish SSH tunnel to a Codespace, hence you need to setup ssh keys if you didn't before. If you can do `sudo gh codespace ssh` (`sudo` is important since kernel might use different identity under non-root user) and connect to a Codespace successfully, - you are good to go. Refer to [Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) for more info. List of known issues and workarounds for them can be found [here](https://github.com/github/gh-net/issues?q=is%3Aissue+is%3Aopen+label%3Aknown-issue).
 
-3. If your codespace uses the non-default image, make sure that the [GitHub CLI](https://cli.github.com/) and an SSH server are installed inside the codespace. 
+3. If your codespace uses a non-default image, ensure that both the [GitHub CLI](https://cli.github.com/) and an SSH server are installed inside the codespace. 
 
 One way to install the prereqs is by adding the following to the `features` property of your `devcontainer.json` file.
 ```jsonc

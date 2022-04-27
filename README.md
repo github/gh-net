@@ -19,7 +19,7 @@ For instance, if you are using a `VPN` to connect to your enterprise network to 
 
 3. If your codespace uses a non-default image, ensure that both the [GitHub CLI](https://cli.github.com/) and an SSH server are installed inside the codespace. 
 
-One way to install the prereqs is by adding the following to the `features` property of your `devcontainer.json` file.
+One way to install these prereqs on a debian-based image is by adding the following to the `features` property of your `devcontainer.json` file.
 ```jsonc
 // devcontainer.json
 {

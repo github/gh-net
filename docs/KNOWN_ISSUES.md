@@ -1,9 +1,9 @@
 ## Known issues
 
-- 🚩 [#6 [mac osx] Do you want the application "gh net" to accept incoming network connections? come and go out quickly](https://github.com/github/gh-net/issues/6)
+### Mac OSx
 
-### 🚩 SSH stack trace
-
+- 🚩 [Do you want the application "gh net" to accept incoming network connections? dialog come and go out quickly #6](https://github.com/github/gh-net/issues/6)
+- 🚩 [Terminal GUI overlaps with SSH passphrase or Codespace password dialog hence not possible to connect #9](https://github.com/github/gh-net/issues/9)
 
 ### 🚩 I'm getting an `Permissions denied` error an a stack trace immediatelly after starting the extension
 

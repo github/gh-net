@@ -136,7 +136,7 @@ For list of supported network protocols refer to [this doc](./docs/SUPPORTED_NET
 
 - Something is missing? Please create a [✨ feature request](https://github.com/github/gh-net/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=).
 - Something is incorrect? Please create a [🐛 bug report](https://github.com/github/gh-net/issues/new?assignees=&labels=bug&template=bug_report.md&title=).
-- For list of known issues refer to [👉 this doc](./docs/KNOWN_ISSUES.md) or [👉 this list](https://github.com/github/gh-net/issues?q=is%3Aissue+is%3Aopen+label%3Aknown-issue).
+- For list of known issues refer to [👉 this list](https://github.com/github/gh-net/issues?q=is%3Aissue+is%3Aopen+label%3Aknown-issue).
 
 ## Useful links
 

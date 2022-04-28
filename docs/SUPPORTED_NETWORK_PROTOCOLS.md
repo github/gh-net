@@ -52,4 +52,4 @@ Legend: ✅ - currently supported 🏃 - in progress `?` - unknown / not tested
 
 - Something is missing? Please create a [✨ feature request](https://github.com/github/gh-net/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=).
 - Something is incorrect? Please create a [🐛 bug report](https://github.com/github/gh-net/issues/new?assignees=&labels=bug&template=bug_report.md&title=).
-- For list of known issues refer to [👉 this doc](./docs/KNOWN_ISSUES.md).
+- For list of known issues refer to [👉 this list](https://github.com/github/gh-net/issues?q=is%3Aissue+is%3Aopen+label%3Aknown-issue).

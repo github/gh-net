@@ -43,7 +43,7 @@ To start network forwarding from a Codespace to a local machine, run:
 sudo gh net start
 ```
 
-> ⚠️ Note: If you set a `passphrase` for your `SSH` keys, you will need to pass `--gui false` CLI option, otherwise you won't be able to connect. This will be fixed in future releases.
+Connection issues? Please see https://github.com/github/gh-net/issues/9 for some common solutions.
 
 This will provide codespace selection dialog:
 

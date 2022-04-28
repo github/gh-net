@@ -6,7 +6,7 @@
 
 This [GitHub CLI](https://cli.github.com/) extension allows to bridge network between a Codespace and your local machine, so the `Codespace` can reach out to any remote resource that is reachable from your machine. In another words, it uses your local machine as a network `gateway` to get to those resources.
 
-For instance, if you are using a `VPN` to connect to your enterprise network to access a database or any other remote resources on the private network, this extension allows you to get to those resources from within a Codespace, so that you can develop fully inside a Codespace!
+For instance, if you are using a `VPN` client to connect to private enterprise network to access a database or any other remote resources, this extension enables you to use those private resources from within a Codespace.
 
 [About GitHub CLI](https://cli.github.com/).
 

@@ -106,7 +106,7 @@ Run `gh net start -h` for details.
 | Centos                  | ?      | ✅               |
 | Kali                    | ?      | ✅               |
 | Arch                    | ?      | ✅               |
-| Alpine                  | ?      | ✅               |
+| Alpine                  | ?      | ✅   [*](https://github.com/github/gh-net/issues/12) |
 
 ### Windows
 

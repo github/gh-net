@@ -60,11 +60,13 @@ There are two pannels in the connected view of the extension:
 
 Press `q` or `ctrl + c` to stop the extension.
 
+
 ### CLI Options
 
 - `--gui`: Enanble/disable GUI mode. [`true` | `false`] [default: `true`]
 - `--dns`: Enanble/disable DNS resolution. [`true` | `false`] [default: `true`]
 - `--trace`: Specify tracing verbosity. [`none` | `trace` | `debug` | `info` | `warn` | `error`] [default: `info`]
+- `--telemetry`: Enanble/disable sending diagnostics telemetry (no `PII` data is sent). [`true` | `false`] [default: `true`]
 
 Run `gh net start -h` for details.
 

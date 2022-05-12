@@ -75,70 +75,70 @@ Run `gh net start -h` for details.
 
 ### Mac OSx
 
-| OS                 | Local |
-|--------------------|-------|
-| Big Sur (v11)      | ✅    |
-| Monterey (v12)     | ✅    |
+| OS                 | Local                             |
+|--------------------|-----------------------------------|
+| Big Sur (v11)      | <span title="supported">✅</span> |
+| Monterey (v12)     | <span title="supported">✅</span> |
 
 ### Linux
 
-| Distro                  | Local    | Inside Codespace |
-|-------------------------|----------|------------------|
-| Ubuntu                  | ✅       | ✅               |
-| Debian                  | ✅       | ✅               |
-| Fedora                  | ✅       | ✅               |
-| Red Hat                 | `?`      | ✅               |
-| Mint                    | `?`      | ✅               |
-| OpenSUSE                | `?`      | ✅               |
-| Centos                  | `?`      | ✅               |
-| Kali                    | `?`      | ✅               |
-| Arch                    | `?`      | ✅               |
-| Alpine                  | ✅       | ✅  [*](https://github.com/github/gh-net/issues/12) |
+| Distro                  | Local    | Inside Codespace                                           |
+|-------------------------|----------|------------------------------------------------------------|
+| Ubuntu                  | <span title="supported">✅</span> | <span title="supported">✅</span> |
+| Debian                  | <span title="supported">✅</span> | <span title="supported">✅</span> |
+| Fedora                  | <span title="supported">✅</span> | <span title="supported">✅</span> |
+| Red Hat                 | <span title="supported">✅</span> | <span title="supported">✅</span> |
+| Mint                    | <span title="supported">✅</span> | <span title="supported">✅</span> |
+| OpenSUSE                | <span title="supported">✅</span> | <span title="supported">✅</span> |
+| Centos                  | <span title="supported">✅</span> | <span title="supported">✅</span> |
+| Kali                    | <span title="supported">✅</span> | <span title="supported">✅</span> |
+| Arch                    | <span title="supported">✅</span> | <span title="supported">✅</span> |
+| Alpine                  | <span title="supported">✅</span> | <a href="https://github.com/github/gh-net/issues/12" title="supported">✅ *</a> |
 
 ### Windows
 
-| Version                 | Local |
-|-------------------------|-------|
-| Windows 10              | 🏃    |
-| Windows 11              | 🏃    |
+| Version                 | Local                               |
+|-------------------------|-------------------------------------|
+| Windows 10              | <span title="in progress">🏃</span> |
+| Windows 11              | <span title="in progress">🏃</span> |
 
 ## Supported achritectures
 
 ### Mac OSx
 
-| Architecture                  | Status |
-|-------------------------------|--------|
-| Intel(AMD64)                  | ✅     |
-| Apple silicon (ARM64)         | ✅  [*](https://github.com/github/gh-net/issues/22) |
+| Architecture                  | Status                            |
+|-------------------------------|-----------------------------------|
+| Intel(AMD64)                  | <span title="supported">✅</span> |
+| Apple silicon (ARM64)         | <a href="https://github.com/github/gh-net/issues/22" title="supported">✅ *</a> |
 
 ### Linux
 
-| Architecture            | Status |
-|-------------------------|--------|
-| AMD64                   | ✅     |
-| ARM64                   | ✅     |
-| ARMv6                   | ✅     |
-| ARMv7                   | ✅     |
+| Architecture            | Status                            |
+|-------------------------|-----------------------------------|
+| AMD64                   | <span title="supported">✅</span> |
+| ARM64                   | <span title="supported">✅</span> |
+| ARMv6                   | <span title="supported">✅</span> |
+| ARMv7                   | <span title="supported">✅</span> |
 
 ### Windows
 
-| Architecture            | Status |
-|-------------------------|--------|
-| AMD64                   | 🏃     |
-| i386                    | 🏃     |
+| Architecture            | Status                              |
+|-------------------------|-------------------------------------|
+| AMD64                   | <span title="in progress">🏃</span> |
+| i386                    | <span title="in progress">🏃</span> |
 
 ## Tested VPN Clients
 
-| Name                    | Status |
-|-------------------------|--------|
-| Viscocity               | ✅     |
-| GlobalProtect           | ✅     |
-| NordVPN                 | ✅     |
-| Tailscale               | ✅     |
+| Name                    | Status                            |
+|-------------------------|-----------------------------------|
+| Viscocity               | <span title="supported">✅</span> |
+| GlobalProtect           | <span title="supported">✅</span> |
+| NordVPN                 | <span title="supported">✅</span> |
+| Tailscale               | <span title="supported">✅</span> |
 
 <br />
 
-Legend: ✅ - currently supported 🏃 - in progress `?` - unknown / not tested
+Legend: ✅ - supported 🏃 - in progress `?` - unknown / not tested
 
 <br />
 

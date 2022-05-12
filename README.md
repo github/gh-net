@@ -86,14 +86,14 @@ Run `gh net start -h` for details.
 |-------------------------|----------|------------------|
 | Ubuntu                  | ✅       | ✅               |
 | Debian                  | ✅       | ✅               |
-| Fedora                  | `?`      | ✅               |
+| Fedora                  | ✅       | ✅               |
 | Red Hat                 | `?`      | ✅               |
 | Mint                    | `?`      | ✅               |
 | OpenSUSE                | `?`      | ✅               |
 | Centos                  | `?`      | ✅               |
 | Kali                    | `?`      | ✅               |
 | Arch                    | `?`      | ✅               |
-| Alpine                  | `?`      | ✅  [*](https://github.com/github/gh-net/issues/12) |
+| Alpine                  | ✅       | ✅  [*](https://github.com/github/gh-net/issues/12) |
 
 ### Windows
 

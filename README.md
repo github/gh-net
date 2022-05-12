@@ -73,34 +73,59 @@ Run `gh net start -h` for details.
 
 ### Mac OSx
 
-| Architecture            | Local |
-|-------------------------|-------|
-| Intel                   | ✅     |
-| Apple silicon           | ✅     |
+| OS                 | Local |
+|--------------------|-------|
+| Big Sur (v11)      | ✅    |
+| Monterey (v12)     | ✅    |
 
 ### Linux
 
-| Distro                  | Local | Inside Codespace |
-|-------------------------|-------|------------------|
-| Ubuntu                  | ✅     | ✅               |
-| Debian                  | ✅     | ✅               |
-| Fedora                  | ?      | ✅               |
-| Red Hat                 | ?      | ✅               |
-| Mint                    | ?      | ✅               |
-| OpenSUSE                | ?      | ✅               |
-| Centos                  | ?      | ✅               |
-| Kali                    | ?      | ✅               |
-| Arch                    | ?      | ✅               |
-| Alpine                  | ?      | ✅   [*](https://github.com/github/gh-net/issues/12) |
+| Distro                  | Local    | Inside Codespace |
+|-------------------------|----------|------------------|
+| Ubuntu                  | ✅       | ✅               |
+| Debian                  | ✅       | ✅               |
+| Fedora                  | `?`      | ✅               |
+| Red Hat                 | `?`      | ✅               |
+| Mint                    | `?`      | ✅               |
+| OpenSUSE                | `?`      | ✅               |
+| Centos                  | `?`      | ✅               |
+| Kali                    | `?`      | ✅               |
+| Arch                    | `?`      | ✅               |
+| Alpine                  | `?`      | ✅  [*](https://github.com/github/gh-net/issues/12) |
 
 ### Windows
 
 | Version                 | Local |
 |-------------------------|-------|
-| Windows 10              | 🏃     |
-| Windows 11              | 🏃     |
+| Windows 10              | 🏃    |
+| Windows 11              | 🏃    |
 
-## VPN Clients
+## Supported achritectures
+
+### Mac OSx
+
+| Architecture                  | Status |
+|-------------------------------|--------|
+| Intel(AMD64)                  | ✅     |
+| Apple silicon (ARM64)         | ✅  [*](https://github.com/github/gh-net/issues/22) |
+
+### Linux
+
+| Architecture            | Status |
+|-------------------------|--------|
+| AMD64                   | ✅     |
+| ARM64                   | ✅     |
+| ARMv6                   | ✅     |
+| ARMv7                   | ✅     |
+
+### Windows
+
+| Architecture            | Status |
+|-------------------------|--------|
+| AMD64                   | 🏃     |
+| i386                    | 🏃     |
+
+## Tested VPN Clients
 
 | Name                    | Status |
 |-------------------------|--------|

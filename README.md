@@ -53,7 +53,7 @@ Select a codespace and press enter. The extension will connect to selected codes
 
 <img width="749" alt="image" src="https://user-images.githubusercontent.com/1478800/161617508-b65de564-60f3-46c8-8394-5b28c8ac477b.png">
 
-There are two pannels in the connected view of the extension:
+There are two panels in the connected view of the extension:
 
 - Panel on the left (`NAT`) shows the network address translation table for currently opened connections. For stateful protocols(e.g. `TCP`) the records are cleaned up automatically after connection is closed so the records will come and go as connection is established and closed. For stateless protocols (e.g. `UDP` or `ICMP`) or unsuccessful `TCP` connections the records are cleaned up after some time, so those will show up in the list for some time.
 - Panel on the right (`DNS`) shows the resolved `DNS` records, as `hostname`, `record` and `time-to-live` (`TTL`) values.
@@ -63,10 +63,10 @@ Press `q` or `ctrl + c` to stop the extension.
 
 ### CLI Options
 
-- `--gui`: Enanble/disable GUI mode. [`true` | `false`] [default: `true`]
-- `--dns`: Enanble/disable DNS resolution. [`true` | `false`] [default: `true`]
+- `--gui`: Enable/disable GUI mode. [`true` | `false`] [default: `true`]
+- `--dns`: Enable/disable DNS resolution. [`true` | `false`] [default: `true`]
 - `--trace`: Specify tracing verbosity. [`none` | `trace` | `debug` | `info` | `warn` | `error`] [default: `info`]
-- `--telemetry`: Enanble/disable sending diagnostics telemetry (no `PII` data is sent). [`true` | `false`] [default: `true`]
+- `--telemetry`: Enable/disable sending diagnostics telemetry (no `PII` data is sent). [`true` | `false`] [default: `true`]
 
 Run `gh net start -h` for details.
 
@@ -102,7 +102,7 @@ Run `gh net start -h` for details.
 | Windows 10              | <span title="in progress">🏃</span> |
 | Windows 11              | <span title="in progress">🏃</span> |
 
-## Supported achritectures
+## Supported architectures
 
 ### Mac OSx
 

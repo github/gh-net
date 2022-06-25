@@ -1,10 +1,10 @@
 ## Codespaces Network Bridge
 
-🧪 *The extension is currently in Preview stage, so some hiccups are expected. Please help us to improve [by submitting feedback](https://github.com/github/gh-net#troubleshooting)!*
+🧪 *The extension is currently in the Preview stage, so some hiccups are expected. Please help us to improve [by submitting feedback](https://github.com/github/gh-net#troubleshooting)!*
 
 <img width="749" alt="image" src="https://user-images.githubusercontent.com/1478800/161617508-b65de564-60f3-46c8-8394-5b28c8ac477b.png">
 
-This [GitHub CLI](https://cli.github.com/) extension allows to bridge network between a Codespace and your local machine, so the `Codespace` can reach out to any remote resource that is reachable from your machine. In another words, it uses your local machine as a network `gateway` to get to those resources.
+This [GitHub CLI](https://cli.github.com/) extension allows you to bridge the network between a Codespace and your local machine, so the `Codespace` can reach out to any remote resource that is reachable from your machine. In other words, it uses your local machine as a network `gateway` to get to those resources.
 
 For instance, if you are using a `VPN` client to connect to private enterprise network to access a database or any other remote resources, this extension enables you to use those private resources from within a Codespace.
 
@@ -12,12 +12,11 @@ For instance, if you are using a `VPN` client to connect to private enterprise n
 
 ## Prerequisites
 
+1. This extension depends on the latest features of [GitHub CLI](https://cli.github.com/)(>= v2.8.0). Please make sure [to upgrade it](https://github.com/cli/cli#installation). 
 
-1. This extension depends on the latest features of GitHub CLI(>= v2.8.0), please make sure [to upgrade it](https://github.com/cli/cli#installation). If run the `gh codespace select` command opens the codespace selection dialog, you are good to go.
+2. The extension relies on `gh codespace ssh` command to establish SSH tunnel to a Codespace. If you use [GitHub CLI >=2.13.0](https://github.com/cli/cli/releases/tag/v2.13.0) the `SSH` config is created automatically for your Codespaces, otherwise refer to [SSH setup](./docs/SSH_SETUP.md) instructions.
 
-2. The extension relies on `gh codespace ssh` command to establish SSH tunnel to a Codespace, hence you need to setup ssh keys if you didn't before. If you can do `sudo gh codespace ssh` (`sudo` is important since kernel might use different identity under non-root user) and connect to a Codespace successfully, - you are good to go. Refer to [Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) for more info. List of known issues and workarounds for them can be found [here](https://github.com/github/gh-net/issues?q=is%3Aissue+is%3Aopen+label%3Aknown-issue).
-
-3. If your codespace uses a non-default image, ensure that both the [GitHub CLI](https://cli.github.com/), `openssh-server` and `sudo` are installed inside the codespace. Some distros need an `ssh` group too. Please see [linux dependencies doc](./docs/LINUX_DEPENDENCIES.md) for per-distro instructions.
+3. If your codespace uses a non-default image, ensure that both the [GitHub CLI](https://cli.github.com/), `openssh-server`, and `sudo` are installed inside the codespace. Some distros need an `ssh` group too. Please see [linux dependencies doc](./docs/LINUX_DEPENDENCIES.md) for per-distro instructions.
 
 ## Installation
 
@@ -33,7 +32,7 @@ Linux:
 sudo gh extension install github/gh-net
 ```
 
-The `sudo` is required during extension installation on Linux due to https://github.com/cli/cli/issues/5456. Hopefully it won't be the case in the future.
+The `sudo` permissions are required during extension installation on Linux due to https://github.com/cli/cli/issues/5456. Hopefully, it won't be the case in the future.
 
 ## Usage
 
@@ -43,9 +42,10 @@ To start network forwarding from a Codespace to a local machine, run:
 sudo gh net start
 ```
 
-Connection issues? Please see https://github.com/github/gh-net/issues/9 for some common solutions.
+Connection issues? Please see https://github.com/github/gh-net/issues/9 and [SSH setup doc](./docs/SSH_SETUP.md) for some of the known solutions.
 
-This will provide codespace selection dialog:
+
+The command will first open a Codespace selection dialog:
 
 <img width="749" alt="image" src="https://user-images.githubusercontent.com/1478800/161616184-4cd42419-6d97-440c-bf26-cb713baa7607.png">
 
@@ -55,11 +55,10 @@ Select a codespace and press enter. The extension will connect to selected codes
 
 There are two panels in the connected view of the extension:
 
-- Panel on the left (`NAT`) shows the network address translation table for currently opened connections. For stateful protocols(e.g. `TCP`) the records are cleaned up automatically after connection is closed so the records will come and go as connection is established and closed. For stateless protocols (e.g. `UDP` or `ICMP`) or unsuccessful `TCP` connections the records are cleaned up after some time, so those will show up in the list for some time.
-- Panel on the right (`DNS`) shows the resolved `DNS` records, as `hostname`, `record` and `time-to-live` (`TTL`) values.
+- Panel on the left (`NAT`) shows the network address translation table for currently opened connections. For stateful protocols(e.g. `TCP`) the records are cleaned up automatically after a connection is closed, so the records will come and go as connections are established and teardown. For stateless protocols (e.g. `UDP` or `ICMP`) or unsuccessful `TCP` connections, the records are cleaned up after a delay; hence those may show up in the list for some time.
+- Panel on the right (`DNS`) shows the resolved `DNS` records, as `hostname`, `record`, and `time-to-live` (`TTL`) values.
 
 Press `q` or `ctrl + c` to stop the extension.
-
 
 ### CLI Options
 
@@ -148,7 +147,7 @@ For list of supported network protocols refer to [this doc](./docs/SUPPORTED_NET
 
 - Something is missing? Please create a [✨ feature request](https://github.com/github/gh-net/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=).
 - Something is incorrect? Please create a [🐛 bug report](https://github.com/github/gh-net/issues/new?assignees=&labels=bug&template=bug_report.md&title=).
-- For list of known issues refer to [👉 this list](https://github.com/github/gh-net/issues?q=is%3Aissue+is%3Aopen+label%3Aknown-issue).
+- For known issues, refer to [👉 this list](https://github.com/github/gh-net/issues?q=is%3Aissue+is%3Aopen+label%3Aknown-issue).
 
 ## Useful links
 

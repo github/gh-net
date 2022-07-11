@@ -14,9 +14,9 @@ For instance, if you are using a `VPN` client to connect to private enterprise n
 
 1. This extension depends on the latest features of [GitHub CLI](https://cli.github.com/)(>= v2.8.0). Please make sure [to upgrade it](https://github.com/cli/cli#installation). 
 
-2. The extension relies on `gh codespace ssh` command to establish SSH tunnel to a Codespace. If you use [GitHub CLI >=2.13.0](https://github.com/cli/cli/releases/tag/v2.13.0) the `SSH` config is created automatically for your Codespaces, otherwise refer to [SSH setup](./docs/SSH_SETUP.md) instructions.
+2. The extension relies on `gh codespace ssh` command to establish SSH tunnel to a Codespace. If you use [GitHub CLI >=2.13.0](https://github.com/cli/cli/releases/tag/v2.13.0) the `SSH` config is created automatically for all your Codespaces, otherwise follow [SSH setup](./docs/SSH_SETUP.md) instructions.
 
-3. If your codespace uses a non-default image, ensure that both the [GitHub CLI](https://cli.github.com/), `openssh-server`, and `sudo` are installed inside the codespace. Some distros need an `ssh` group too. Please see [linux dependencies doc](./docs/LINUX_DEPENDENCIES.md) for per-distro instructions.
+3. If your Codespace uses a non-default image, ensure that both the [GitHub CLI](https://cli.github.com/), `openssh-server`, and `sudo` are installed inside the codespace. Some distros need an `ssh` group too. Please see [linux dependencies doc](./docs/LINUX_DEPENDENCIES.md) for per-distro instructions.
 
 ## Installation
 

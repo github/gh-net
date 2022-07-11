@@ -1,3 +1,11 @@
+## 0.8.3
+
+- add `--codespace`(`-c`) CLI argument to specify a `Codespace` name to connect to. More info: https://github.com/github/gh-net/issues/30
+- add `--trace-dest` CLI argument to specify trace file path. More info: https://github.com/github/gh-net/issues/35
+- fix IP routing issue for PTP network interfaces that are configured to be a default gateway on local machine. More info: https://github.com/github/gh-net/issues/33
+- improved start command panic handling.
+- bug fixes for app diagnostics logic.
+
 ## 0.6.4
 
 - increase number of tasks in worker thread pool to `12`. This fixes app freezes issue for low-end machines with few number of CPU cores and allowes for `11` active network interfaces on the host(local) machine. More info: https://github.com/github/gh-net/issues/7

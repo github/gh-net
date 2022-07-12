@@ -62,9 +62,11 @@ Press `q` or `ctrl + c` to stop the extension.
 
 ### CLI Options
 
-- `--gui`: Enable/disable GUI mode. [`true` | `false`] [default: `true`]
-- `--dns`: Enable/disable DNS resolution. [`true` | `false`] [default: `true`]
-- `--trace`: Specify tracing verbosity. [`none` | `trace` | `debug` | `info` | `warn` | `error`] [default: `info`]
+- `--codespace`(`-c`): Codespace name to connect to. [`codespace name`] [default: `none`]
+- `--dns`(`-d`): Enable/disable DNS resolution. [`true` | `false`] [default: `true`]
+- `--gui`(`-g`): Enable/disable GUI mode. [`true` | `false`] [default: `true`]
+- `--trace`(`-t`): Specify tracing verbosity. [`none` | `trace` | `debug` | `info` | `warn` | `error`] [default: `info`]
+- `--trace-dest`: Specify tracing destination file. [`file name`] [default: `none`]
 - `--telemetry`: Enable/disable sending diagnostics telemetry (no `PII` data is sent). [`true` | `false`] [default: `true`]
 
 Run `gh net start -h` for details.

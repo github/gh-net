@@ -66,15 +66,22 @@ Run `gh net -h` for details.
 
 ### Mac OSx
 
-| OS                 | Local                             |
-|--------------------|-----------------------------------|
-| Big Sur (v11)      | <span title="supported">✅</span> |
-| Monterey (v12)     | <span title="supported">✅</span> |
+| OS                            | Intel chip                        | Apple chip                                                                     |
+|-------------------------------|-----------------------------------|--------------------------------------------------------------------------------|
+| Big Sur (v11)                 | <span title="supported">✅</span> | <a href="https://github.com/github/gh-net/issues/22" title="supported">✅ *</a> |
+| Monterey (v12)                | <span title="supported">✅</span> | <a href="https://github.com/github/gh-net/issues/22" title="supported">✅ *</a> |
+
+### Windows
+
+| Architecture            | AMD64 | ARM64 | i386 |
+|-------------------------|-----------------------------------|------------------------------------|-------------------------------------|
+| Windows 10              | <span title="supported">✅</span> | <span title="in progress">🏃</span> | <span title="in progress">🏃</span> |
+| Windows 11              | <span title="supported">✅</span> | <span title="in progress">🏃</span> | N/A                                |
 
 ### Linux
 
-| Distro                  | Local    | Inside Codespace                                           |
-|-------------------------|----------|------------------------------------------------------------|
+| Distro                  | Local                             | Inside Codespace                 |
+|-------------------------|-----------------------------------|----------------------------------|
 | Ubuntu                  | <span title="supported">✅</span> | <span title="supported">✅</span> |
 | Debian                  | <span title="supported">✅</span> | <span title="supported">✅</span> |
 | Fedora                  | <span title="supported">✅</span> | <span title="supported">✅</span> |
@@ -86,23 +93,7 @@ Run `gh net -h` for details.
 | Arch                    | <span title="supported">✅</span> | <span title="supported">✅</span> |
 | Alpine                  | <span title="supported">✅</span> | <a href="https://github.com/github/gh-net/issues/12" title="supported">✅ *</a> |
 
-### Windows
-
-| Version                 | Local                               |
-|-------------------------|-------------------------------------|
-| Windows 10              | <span title="in progress">🏃</span> |
-| Windows 11              | <span title="in progress">🏃</span> |
-
-## Supported architectures
-
-### Mac OSx
-
-| Architecture                  | Status                            |
-|-------------------------------|-----------------------------------|
-| Intel(AMD64)                  | <span title="supported">✅</span> |
-| Apple silicon (ARM64)         | <a href="https://github.com/github/gh-net/issues/22" title="supported">✅ *</a> |
-
-### Linux
+#### Supported Linux architectures
 
 | Architecture            | Status                            |
 |-------------------------|-----------------------------------|
@@ -110,15 +101,6 @@ Run `gh net -h` for details.
 | ARM64                   | <span title="supported">✅</span> |
 | ARMv6                   | <span title="supported">✅</span> |
 | ARMv7                   | <span title="supported">✅</span> |
-
-### Windows
-
-| Architecture            | Status                              |
-|-------------------------|-------------------------------------|
-| Windows 10 (AMD)        | <span title="supported">✅</span>   |
-| Windows 11 (AMD)        | <span title="supported">✅</span>   |
-| Windows 11 (ARM)        | <span title="in progress">🏃</span> |
-| Windows 10 (i386)       | <span title="in progress">🏃</span> |
 
 ## Tested VPN Clients
 

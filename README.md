@@ -12,38 +12,29 @@ For instance, if you are using a `VPN` client to connect to private enterprise n
 
 ## Prerequisites
 
-1. This extension depends on the latest features of [GitHub CLI](https://cli.github.com/)(>= v2.8.0). Please make sure [to upgrade it](https://github.com/cli/cli#installation). 
+1. This extension requires [GitHub CLI](https://cli.github.com/) version `v2.8.0` and up. Please make sure [to upgrade it](https://github.com/cli/cli#installation).
 
-2. The extension relies on `gh codespace ssh` command to establish SSH tunnel to a Codespace. If you use [GitHub CLI >=2.13.0](https://github.com/cli/cli/releases/tag/v2.13.0) the `SSH` config is created automatically for all your Codespaces, otherwise follow [SSH setup](./docs/SSH_SETUP.md) instructions.
+2. **If using GitHub CLI < [2.13.0](https://github.com/cli/cli/releases/tag/v2.13.0) only.** The extension relies on `gh codespace ssh` command to establish SSH tunnel to a Codespace. If you use [GitHub CLI >=2.13.0](https://github.com/cli/cli/releases/tag/v2.13.0) the `SSH` config is created automatically for all your Codespaces, otherwise follow [SSH setup](./docs/SSH_SETUP.md) instructions.
 
 3. If your Codespace uses a non-default image, ensure that both the [GitHub CLI](https://cli.github.com/), `openssh-server`, and `sudo` are installed inside the codespace. Some distros need an `ssh` group too. Please see [linux dependencies doc](./docs/LINUX_DEPENDENCIES.md) for per-distro instructions.
 
 ## Installation
 
-Mac OSx:
-
 ```shell
 gh extension install github/gh-net
 ```
-
-Linux:
-
-```shell
-sudo gh extension install github/gh-net
-```
-
-The `sudo` permissions are required during extension installation on Linux due to https://github.com/cli/cli/issues/5456. Hopefully, it won't be the case in the future.
 
 ## Usage
 
 To start network forwarding from a Codespace to a local machine, run:
 
 ```shell
-sudo gh net start
+gh net
 ```
 
-Connection issues? Please see https://github.com/github/gh-net/issues/9 and [SSH setup doc](./docs/SSH_SETUP.md) for some of the known solutions.
+> Note: on Windows, you need to use a command prompt launched with Administrator privileges.
 
+Connection issues? Please see https://github.com/github/gh-net/issues/9 and [SSH setup doc](./docs/SSH_SETUP.md) for some of the known solutions.
 
 The command will first open a Codespace selection dialog:
 
@@ -62,15 +53,14 @@ Press `q` or `ctrl + c` to stop the extension.
 
 ### CLI Options
 
-- `--codespace`(`-c`): Codespace name to connect to. [`codespace name`] [default: `none`]
-- `--dns`(`-d`): Enable/disable DNS resolution. [`true` | `false`] [default: `true`]
 - `--gui`(`-g`): Enable/disable GUI mode. [`true` | `false`] [default: `true`]
 - `--trace`(`-t`): Specify tracing verbosity. [`none` | `trace` | `debug` | `info` | `warn` | `error`] [default: `info`]
 - `--trace-dest`: Specify tracing destination file. [`file name`] [default: `none`]
+- `--dns`(`-d`): Enable/disable DNS resolution. [`true` | `false`] [default: `true`]
+- `--codespace`(`-c`): Codespace name to connect to. [`codespace name`] [default: `none`]
 - `--telemetry`: Enable/disable sending diagnostics telemetry (no `PII` data is sent). [`true` | `false`] [default: `true`]
 
-Run `gh net start -h` for details.
-
+Run `gh net -h` for details.
 
 ## Supported platforms
 
@@ -125,8 +115,10 @@ Run `gh net start -h` for details.
 
 | Architecture            | Status                              |
 |-------------------------|-------------------------------------|
-| AMD64                   | <span title="in progress">🏃</span> |
-| i386                    | <span title="in progress">🏃</span> |
+| Windows 10 (AMD)        | <span title="supported">✅</span>   |
+| Windows 11 (AMD)        | <span title="supported">✅</span>   |
+| Windows 11 (ARM)        | <span title="in progress">🏃</span> |
+| Windows 10 (i386)       | <span title="in progress">🏃</span> |
 
 ## Tested VPN Clients
 

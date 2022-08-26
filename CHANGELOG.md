@@ -1,3 +1,11 @@
+## 0.12.2
+
+- adds `Windows 10` and `Windows 11` support for AMD-based machines.
+- adds automatic `sudo` privileges escalation on `Unix`. No need to use `sudo` to install or launch the extension anymore.
+- extension now fallbacks to `start` command if no command was specified, effectively making it the default command.
+- makes `DNS` queries resolution process asynchronous so that `DNS` queries are not blocking other traffic.
+- improve `network traffic` GUI panel rendering accuracy and performance.
+
 ## 0.8.3
 
 - add `--codespace`(`-c`) CLI argument to specify a `Codespace` name to connect to. More info: https://github.com/github/gh-net/issues/30

@@ -73,10 +73,10 @@ Run `gh net -h` for details.
 
 ### Windows
 
-| Architecture            | AMD64 | ARM64 | i386 |
-|-------------------------|-----------------------------------|------------------------------------|-------------------------------------|
-| Windows 10              | <span title="supported">✅</span> | <span title="in progress">🏃</span> | <span title="in progress">🏃</span> |
-| Windows 11              | <span title="supported">✅</span> | <span title="in progress">🏃</span> | N/A                                |
+| Architecture            | AMD64 |
+|-------------------------|-----------------------------------|
+| Windows 10              | <span title="supported">✅</span> |
+| Windows 11              | <span title="supported">✅</span> |
 
 ### Linux
 
